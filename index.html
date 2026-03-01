@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Med Spa AI Booking Assistant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #faf7f5;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-weight: 400;
+            color: #b68d6c;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #b68d6c;
+        }
+
+        .cta-box {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>24/7 AI Booking Assistant</h1>
+        <h2>Designed for Modern Med Spas</h2>
+
+        <p>
+            This AI assistant instantly responds to inquiries, answers treatment questions,
+            and books consultations automatically — even after hours.
+        </p>
+
+        <div class="cta-box">
+            <p class="highlight">
+                Try asking about:
+            </p>
+            <p>
+                • Botox pricing<br>
+                • Filler appointments<br>
+                • Consultation availability<br>
+                • Treatment downtime<br>
+                • Membership options
+            </p>
+        </div>
+
+        <p style="margin-top:40px;">
+            The chat bubble in the corner simulates how this system would appear on your website.
+        </p>
+    </div>
+
+    <footer>
+        Confidential Demo – Automated Booking System for Med Spa Practices
+    </footer>
+
+    <!-- Chatbase Widget Script -->
+    <script>
+    (function(){
+        if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+            window.chatbase = (...arguments) => {
+                if(!window.chatbase.q){ window.chatbase.q = [] }
+                window.chatbase.q.push(arguments)
+            };
+            window.chatbase = new Proxy(window.chatbase,{
+                get(target,prop){
+                    if(prop === "q"){ return target.q }
+                    return (...args) => target(prop,...args)
+                }
+            })
+        }
+
+        const onLoad = function(){
+            const script = document.createElement("script");
+            script.src = "https://www.chatbase.co/embed.min.js";
+            script.id = "UJBdo8ATxvO9uEubsaGDP";
+            script.domain = "www.chatbase.co";
+            document.body.appendChild(script)
+        };
+
+        if(document.readyState === "complete"){
+            onLoad()
+        } else {
+            window.addEventListener("load", onLoad)
+        }
+    })();
+    </script>
+
+</body>
+  </html>
