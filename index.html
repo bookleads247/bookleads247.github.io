@@ -1,166 +1,207 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Luxury Med Spa AI Concierge</title>
+    <title>AI Client Concierge | Med Spa Demo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0f0f10;
-            color: #eaeaea;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .section {
-            padding: 100px 20px;
-            max-width: 1000px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 20% 20%, #1a1a1f, #0c0c0f 60%);
+            color: #f2f2f2;
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            max-width: 1100px;
             margin: auto;
+            padding: 120px 20px;
             text-align: center;
         }
 
         h1 {
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 400;
             letter-spacing: 1px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1.2s ease forwards;
         }
 
         h2 {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 300;
-            color: #c6a87d;
-            margin-bottom: 40px;
+            color: #d6b98c;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1.4s ease forwards;
         }
 
-        p {
-            font-size: 20px;
-            line-height: 1.7;
-            max-width: 750px;
-            margin: 20px auto;
-            color: #cfcfcf;
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 0 40px rgba(214,185,140,0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1.6s ease forwards;
+        }
+
+        .glass p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #dcdcdc;
+            margin-bottom: 20px;
         }
 
         .highlight {
-            color: #c6a87d;
+            color: #d6b98c;
             font-weight: 500;
         }
 
-        .divider {
-            width: 60px;
-            height: 1px;
-            background-color: #c6a87d;
-            margin: 40px auto;
-        }
-
-        .pain-box {
-            background-color: #161618;
-            padding: 60px 30px;
-            border-radius: 12px;
+        .subtle {
+            font-size: 16px;
+            color: #999;
             margin-top: 60px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 2s ease forwards;
         }
 
         footer {
-            padding: 60px 20px;
+            margin-top: 120px;
+            padding: 40px;
             text-align: center;
             font-size: 14px;
-            color: #888;
-            background-color: #0a0a0b;
+            color: #777;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Subtle floating glow effect */
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(214,185,140,0.15), transparent 70%);
+            top: -100px;
+            right: -150px;
+            filter: blur(80px);
+            z-index: 0;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="section">
-        <h1>The 24/7 AI Client Concierge</h1>
-        <h2>Designed for High-End Med Spa Practices</h2>
+<div class="glow"></div>
 
-        <div class="divider"></div>
+<div class="wrapper">
+
+    <h1>The AI Client Concierge</h1>
+    <h2>Luxury Booking Infrastructure for Modern Aesthetic Clinics</h2>
+
+    <div class="glass">
+        <p>
+            Your highest-value clients don’t always inquire during business hours.
+        </p>
 
         <p>
-            Your highest-value clients often inquire after hours —
-            late evenings, weekends, and in between treatments.
+            When someone lands on your website at <span class="highlight">9:45 PM</span>
+            researching Botox or filler treatments, they expect immediate clarity.
         </p>
 
         <p>
             Most practices respond the next day.
-            <span class="highlight">By then, the opportunity is gone.</span>
-        </p>
-
-        <div class="pain-box">
-            <p>
-                What happens when a prospective Botox or filler client
-                lands on your website at <span class="highlight">9:45 PM</span> looking for answers?
-            </p>
-
-            <p>
-                Without an intelligent system, they leave.
-            </p>
-
-            <p>
-                With this AI concierge installed,
-                they receive immediate answers, treatment guidance,
-                and are professionally directed toward booking a consultation —
-                all within seconds.
-            </p>
-        </div>
-
-        <div class="divider"></div>
-
-        <p>
-            This system works across your website and social media,
-            capturing and qualifying inquiries 24/7.
-        </p>
-
-        <p>
-            More scalable than additional staff.
-            More consistent than manual follow-up.
-            <span class="highlight">Designed to protect revenue and elevate client experience.</span>
-        </p>
-
-        <p style="margin-top:60px;">
-            Interact with the AI concierge using the chat icon in the corner.
+            <span class="highlight">By then, the decision has already been made.</span>
         </p>
     </div>
 
-    <footer>
-        Confidential Demonstration – AI Booking Infrastructure for Modern Aesthetic Clinics
-    </footer>
+    <div class="glass">
+        <p>
+            With this AI concierge installed,
+            every visitor receives immediate answers,
+            professional treatment guidance,
+            and intelligent direction toward booking a consultation.
+        </p>
+
+        <p>
+            It works across your website and social platforms —
+            qualifying, responding, and booking 24/7.
+        </p>
+
+        <p class="highlight">
+            More scalable than additional staff.
+            More consistent than manual follow-up.
+            Designed to protect revenue and elevate client experience.
+        </p>
+    </div>
+
+    <p class="subtle">
+        Interact with the concierge using the chat icon in the corner.
+        This is a live demonstration.
+    </p>
+
+</div>
+
+<footer>
+Confidential Demonstration – AI Booking Infrastructure for High-End Med Spa Practices
+</footer>
 
 
-    <!-- Chatbase Widget Script -->
-    <script>
-    (function(){
-        if(!window.chatbase || window.chatbase("getState") !== "initialized"){
-            window.chatbase = (...arguments) => {
-                if(!window.chatbase.q){ window.chatbase.q = [] }
-                window.chatbase.q.push(arguments)
-            };
-            window.chatbase = new Proxy(window.chatbase,{
-                get(target,prop){
-                    if(prop === "q"){ return target.q }
-                    return (...args) => target(prop,...args)
-                }
-            })
-        }
-
-        const onLoad = function(){
-            const script = document.createElement("script");
-            script.src = "https://www.chatbase.co/embed.min.js";
-            script.id = "UJBdo8ATxvO9uEubsaGDP";
-            script.domain = "www.chatbase.co";
-            document.body.appendChild(script)
+<!-- Chatbase Widget Script -->
+<script>
+(function(){
+    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+        window.chatbase = (...arguments) => {
+            if(!window.chatbase.q){ window.chatbase.q = [] }
+            window.chatbase.q.push(arguments)
         };
+        window.chatbase = new Proxy(window.chatbase,{
+            get(target,prop){
+                if(prop === "q"){ return target.q }
+                return (...args) => target(prop,...args)
+            }
+        })
+    }
 
-        if(document.readyState === "complete"){
-            onLoad()
-        } else {
-            window.addEventListener("load", onLoad)
-        }
-    })();
-    </script>
+    const onLoad = function(){
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "UJBdo8ATxvO9uEubsaGDP";
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script)
+    };
+
+    if(document.readyState === "complete"){
+        onLoad()
+    } else {
+        window.addEventListener("load", onLoad)
+    }
+})();
+</script>
 
 </body>
-    </html>
+</html>
