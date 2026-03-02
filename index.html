@@ -136,9 +136,16 @@ footer {
     color: #9a8b83;
 }
 
-.highlight {
-    color: #c27d5c;
-    font-weight: 600;
+/* Glowing pulse effect for chat widget */
+@keyframes chatPulse {
+    0% { box-shadow: 0 0 8px rgba(194,125,92,0.4); transform: scale(1); }
+    50% { box-shadow: 0 0 18px rgba(194,125,92,0.6); transform: scale(1.05); }
+    100% { box-shadow: 0 0 8px rgba(194,125,92,0.4); transform: scale(1); }
+}
+
+.chatbase-pulse {
+    border-radius: 50%;
+    animation: chatPulse 2s infinite;
 }
 
 @keyframes fadeIn {
@@ -162,25 +169,16 @@ footer {
 
 <div class="card">
 <p>
-It’s <span class="highlight">9:45 pm</span>. A potential client lands on your website after a busy day, exploring treatments and seeking clarity.
+It’s 9:45 PM. A client lands on your website, ready to book and just wants clarity. Your clinic is closed. By morning, the booking is gone, revenue lost overnight.
 </p>
 
 <p>
-Your clinic is closed. No one responds.
+This concierge changes that. Every visitor is greeted immediately, questions answered, interest qualified, and consultations guided around the clock.
 </p>
 
 <p>
-By morning, the booking is gone, revenue lost overnight.
+Experience it yourself by tapping the chat icon in the corner.
 </p>
-
-<p><span class="highlight">This concierge changes that.</span></p>
-<p>
-Every visitor is greeted immediately, questions answered, interest qualified, and consultations guided around the clock.
-</p>
-</div>
-
-<div class="card">
-<p>Select a treatment below to experience how your concierge engages potential clients in real time:</p>
 
 <div class="treatments">
 <button class="treatment-btn" onclick="showResponse('botox')">Botox</button>
@@ -196,7 +194,7 @@ Every visitor is greeted immediately, questions answered, interest qualified, an
 </div>
 
 <div class="social-proof">
-Trusted by modern aesthetic clinics to increase consultation bookings while protecting after-hours leads and elevating patient experience.
+Protect every lead, increase bookings, without extra staff.
 </div>
 
 </div>
@@ -215,7 +213,7 @@ function showResponse(type) {
     }
 
     if (type === "filler") {
-        box.innerHTML = "Lip filler consultations focus on balance and natural enhancement. Results are visible immediately. Your concierge can guide suitability questions and secure appointments today.";
+        box.innerHTML = "Lip filler consultations focus on balance and natural enhancement. Results are visible immediately. Your concierge can guide suitability questions and secure your appointment today.";
     }
 
     if (type === "skin") {
@@ -230,8 +228,8 @@ function promptChat() {
 
 <!-- Chatbase Widget Script -->
 <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="UJBdo8ATxvO9uEubsaGDP";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="UJBdo8ATxvO9uEubsaGDP";script.domain="www.chatbase.co";document.body.appendChild(script); script.onload=()=>{setTimeout(()=>{const iframe=document.querySelector('iframe[src*="chatbase"]'); if(iframe){iframe.classList.add('chatbase-pulse');}},2000);};};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 
 </body>
-</html>
+    </html>
