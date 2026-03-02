@@ -51,11 +51,29 @@ h2 {font-size:22px; font-weight:400; color:#b48267; margin-bottom:60px;}
 .social-proof {margin-top:90px; font-size:16px; color:#7a6b64; animation:fadeIn 2s ease forwards;}
 footer {margin-top:100px; padding:40px; font-size:14px; color:#9a8b83;}
 .highlight {color:#c27d5c; font-weight:600;}
-.compliance-note {font-size:14px; color:#7a6b64; margin-top:15px; font-style:italic;}
-.features {margin:50px 0; font-size:17px; color:#5b4b44; text-align:left; max-width:850px; margin-left:auto; margin-right:auto;}
-.features ul {list-style:disc inside; line-height:1.8;}
+.features {margin-top:30px; font-size:16px; color:#5b4b44; text-align:left; max-width:850px; margin-left:auto; margin-right:auto;}
+.features li {margin-bottom:8px;}
+.hipaa-note {margin-top:25px; font-size:14px; color:#7a6b64; font-style:italic;}
+
+/* Collapsible for mobile */
+.collapsible {cursor:pointer; font-weight:600; color:#c27d5c; text-align:left; border:none; background:none; padding:0; margin:15px 0;}
+.collapsible:after {content: ' ▼'; font-size:14px;}
+.collapsible.active:after {content: ' ▲';}
+.content {max-height:0; overflow:hidden; transition:max-height 0.4s ease;}
+.content ul {padding-left:20px; margin-top:10px;}
+
+/* Animations */
 @keyframes fadeIn {from{opacity:0;} to{opacity:1;}}
 @keyframes fadeUp {from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+@keyframes swipeInLeft {from{opacity:0; transform:translateX(-30px);} to{opacity:1; transform:translateX(0);}}
+@keyframes swipeInRight {from{opacity:0; transform:translateX(30px);} to{opacity:1; transform:translateX(0);}}
+
+@media (max-width:768px) {
+    h1 {font-size:40px;}
+    h2 {font-size:18px; margin-bottom:40px;}
+    .chat-message.user-message {animation: swipeInRight 0.5s ease forwards;}
+    .chat-message:not(.user-message) {animation: swipeInLeft 0.5s ease forwards;}
+}
 </style>
 </head>
 <body>
@@ -84,27 +102,26 @@ footer {margin-top:100px; padding:40px; font-size:14px; color:#9a8b83;}
 <div id="response" class="response-box"></div>
 
 <div class="cta">
-<button onclick="alert('Click the chat icon in the corner to interact with the concierge securely. All messages follow HIPAA, AMA telehealth, FDA, and state medical board standards.')">
-Experience the Concierge Securely
-</button>
+<button onclick="promptChat()">Experience the Concierge Now</button>
 </div>
 
-<div class="compliance-note">
-All communications follow HIPAA, AMA telehealth guidelines, FDA recommendations, and state medical board standards to protect patient privacy.
-</div>
-</div>
-
-<div class="features card">
-<p><span class="highlight">Key Features:</span></p>
-<ul>
-<li>Social channel integration (Facebook Messenger, Instagram DM, WhatsApp chat)</li>
-<li>After-hours automation to capture every lead</li>
-<li>Multilingual support (English, French, Spanish, and more)</li>
+<!-- Collapsible Features + HIPAA -->
+<button type="button" class="collapsible">View Concierge Features & Compliance</button>
+<div class="content">
+<ul class="features">
+<li>• Social channel integration (Facebook Messenger, Instagram DM, WhatsApp chat)</li>
+<li>• After-hours automation</li>
+<li>• Multilingual support (English, French, Spanish, and more)</li>
 </ul>
+<div class="hipaa-note">
+This system follows <span class="highlight">HIPAA</span> and other patient communication guidelines to ensure safe and professional interaction with potential patients.
+</div>
+</div>
+
 </div>
 
 <div class="social-proof">
-Trusted by modern aesthetic clinics to protect after-hours leads and elevate patient experience.
+Protect after-hours leads and elevate your potential patients' experience.
 </div>
 
 <footer>
@@ -117,33 +134,26 @@ function simulateChat(type) {
     box.innerHTML = '';
 
     const messages = [];
-
-    if(type === 'botox') {
+    if(type==='botox'){
         messages.push("Visitor: Hi, I'm interested in Botox. How long is a session?");
         messages.push("Concierge: Botox sessions are typically 15-30 minutes depending on individual goals.");
-        messages.push("Concierge: I can provide available consultation times with a licensed professional.");
-        messages.push("Concierge: All communication is HIPAA-compliant and follows AMA telehealth, FDA, and state medical board guidelines.");
-        messages.push("Concierge: Click the chat icon to experience this secure concierge for yourself.");
+        messages.push("Concierge: I can provide available consultation times so a licensed professional can discuss treatment options safely.");
     }
-
-    if(type === 'filler') {
+    if(type==='filler'){
         messages.push("Visitor: I want lip fillers. How natural will it look?");
-        messages.push("Concierge: Results vary based on personal goals. A licensed professional will guide safe and natural options.");
-        messages.push("Concierge: Booking and messaging are fully compliant with HIPAA, AMA telehealth, FDA, and state board standards.");
-        messages.push("Concierge: Tap the chat icon to interact securely and see how your clients are guided.");
+        messages.push("Concierge: Lip filler results vary based on personal goals. A licensed professional will provide guidance for natural enhancement.");
+        messages.push("Concierge: I can help schedule a consultation with a qualified professional to review safe options.");
     }
-
-    if(type === 'skin') {
+    if(type==='skin'){
         messages.push("Visitor: Tell me about skin rejuvenation treatments.");
-        messages.push("Concierge: Treatments are personalized. A licensed provider makes recommendations during consultation.");
-        messages.push("Concierge: All communication meets HIPAA, AMA telehealth, FDA, and state medical board compliance.");
-        messages.push("Concierge: Try it yourself by tapping the chat icon to experience the secure concierge.");
+        messages.push("Concierge: Skin rejuvenation treatments improve skin health and appearance. Recommendations are made during consultation by a licensed provider.");
+        messages.push("Concierge: I can assist in booking a consultation to receive personalized guidance from a professional.");
     }
 
     let delay = 0;
     messages.forEach(msg => {
         setTimeout(() => {
-            if(!msg.startsWith("Visitor:")) {
+            if(!msg.startsWith("Visitor:")){
                 const typing = document.createElement("div");
                 typing.classList.add("chat-message","typing");
                 typing.innerHTML = '<span></span><span></span><span></span>';
@@ -154,13 +164,15 @@ function simulateChat(type) {
                     const div = document.createElement("div");
                     div.classList.add("chat-message");
                     div.innerText = msg;
+                    if(window.innerWidth <= 768) div.style.animation = "swipeInLeft 0.5s ease forwards";
                     box.appendChild(div);
                     div.scrollIntoView({behavior:"smooth"});
-                }, 1200);
+                },1200);
             } else {
                 const div = document.createElement("div");
                 div.classList.add("chat-message","user-message");
                 div.innerText = msg;
+                if(window.innerWidth <= 768) div.style.animation = "swipeInRight 0.5s ease forwards";
                 box.appendChild(div);
                 div.scrollIntoView({behavior:"smooth"});
             }
@@ -168,6 +180,22 @@ function simulateChat(type) {
         delay += 1500;
     });
 }
+
+function promptChat() {
+    alert("Click the chat icon in the bottom corner to experience the concierge in real time.");
+}
+
+// Collapsible functionality
+const coll = document.getElementsByClassName("collapsible")[0];
+coll.addEventListener("click", function() {
+    this.classList.toggle("active");
+    const content = this.nextElementSibling;
+    if (content.style.maxHeight){
+        content.style.maxHeight = null;
+    } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+    } 
+});
 </script>
 
 <!-- Chatbase Widget Script -->
@@ -176,4 +204,4 @@ function simulateChat(type) {
 </script>
 
 </body>
-  </html>
+    </html>
