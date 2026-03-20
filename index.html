@@ -110,17 +110,19 @@
   </div>
 </section><footer>
   <p>© 2026 Monaco Luxe Medspa</p>
-</footer><script
-  src="https://www.outrchai.com/embed.js"
-  data-chatbot-id="39"
-  data-collect-leads="false"
-  data-color="#ea580c"
-  data-position="bottom-right"
-  data-welcome="Hi 👋 I’m Lina, your 24/7 assistant. I can help you book treatments, check availability, or answer any questions right away.
-
-👉 How can I assist you today?"
-  data-require-name="true"
-  data-require-email="true"
-  data-require-phone="false">
+</footer><script>
+window.addEventListener('load', function() {
+  var script = document.createElement('script');
+  script.src = "https://www.outrchai.com/embed.js";
+  script.setAttribute("data-chatbot-id", "39");
+  script.setAttribute("data-collect-leads", "false");
+  script.setAttribute("data-color", "#ea580c");
+  script.setAttribute("data-position", "bottom-right");
+  script.setAttribute("data-welcome", "Hi 👋 I’m Lina. Want to book a consultation, check availability, or ask a quick question? I can help you get started right away.");
+  script.setAttribute("data-require-name", "true");
+  script.setAttribute("data-require-email", "true");
+  script.setAttribute("data-require-phone", "false");
+  document.body.appendChild(script);
+});
 </script></body>
-  </html>
+</html>
