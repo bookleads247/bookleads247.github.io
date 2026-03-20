@@ -14,7 +14,6 @@
       font-family: 'Inter', sans-serif;
       background: #f9f7f6;
       color: #2c2c2c;
-      overflow-x: hidden;
     }
 
     header {
@@ -37,6 +36,7 @@
       font-size: 26px;
     }
 
+    /* Hamburger Menu */
     .menu-toggle {
       width: 30px;
       cursor: pointer;
@@ -87,7 +87,7 @@
       background: linear-gradient(135deg, #1a1a1a, #3a2f2a);
     }
 
-    /* Hero animated floating shapes */
+    /* Animated floating shapes */
     .hero::before, .hero::after {
       content: "";
       position: absolute;
@@ -111,51 +111,70 @@
       100% { transform: translate(0, 0) scale(1); }
     }
 
-    .hero > div { position: relative; z-index: 1; }
-    .hero h2 { font-family: 'Playfair Display', serif; font-size: 52px; }
-    .hero p { max-width: 600px; margin: 20px auto; font-size: 18px; }
-    .btn { background: #b48a78; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; margin-top: 10px; }
+    .hero > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 18px;
+    }
+
+    .btn {
+      background: #b48a78;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
 
     .section {
       padding: 80px 40px;
       text-align: center;
-      position: relative;
-      z-index: 1;
-      background: #f9f7f6;
     }
 
-    /* 3D moving background shapes for sections */
-    .section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(180,138,120,0.05), transparent 70%);
-      animation: moveShapes 20s linear infinite;
-      z-index: 0;
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
 
-    @keyframes moveShapes {
-      0% { transform: translate(0,0) rotate(0deg); }
-      100% { transform: translate(100px,50px) rotate(360deg); }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
 
-    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; position: relative; z-index: 1; }
-    .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; z-index: 1; }
-    footer { background: #111; color: #aaa; text-align: center; padding: 30px; position: relative; z-index: 1; }
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 30px;
+    }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Monaco Luxe Medspa</h1>
+
   <div class="menu-toggle" onclick="toggleMenu()">
     <div></div>
     <div></div>
     <div></div>
   </div>
+
   <nav id="menu">
     <a href="#">Home</a>
     <a href="#">Services</a>
@@ -174,12 +193,35 @@
 <section class="section">
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card"><h3>Botox & Dysport</h3><p>Smooth fine lines and wrinkles for a youthful, refreshed appearance with expert precision.</p></div>
-    <div class="card"><h3>Dermal Fillers</h3><p>Restore volume, enhance facial contours, and achieve natural-looking results.</p></div>
-    <div class="card"><h3>Morpheus8 & Skin Tightening</h3><p>Advanced microneedling with radiofrequency to tighten skin and boost collagen.</p></div>
-    <div class="card"><h3>Microneedling & PRP</h3><p>Stimulate collagen production and rejuvenate your skin for a radiant glow.</p></div>
-    <div class="card"><h3>Body Contouring</h3><p>Eliminate stubborn fat and sculpt your body with non-surgical treatments.</p></div>
-    <div class="card"><h3>Laser & Skin Treatments</h3><p>Improve skin tone, reduce pigmentation, and achieve smoother, clearer skin.</p></div>
+    <div class="card">
+      <h3>Botox & Dysport</h3>
+      <p>Smooth fine lines and wrinkles for a youthful, refreshed appearance with expert precision.</p>
+    </div>
+
+    <div class="card">
+      <h3>Dermal Fillers</h3>
+      <p>Restore volume, enhance facial contours, and achieve natural-looking results.</p>
+    </div>
+
+    <div class="card">
+      <h3>Morpheus8 & Skin Tightening</h3>
+      <p>Advanced microneedling with radiofrequency to tighten skin and boost collagen.</p>
+    </div>
+
+    <div class="card">
+      <h3>Microneedling & PRP</h3>
+      <p>Stimulate collagen production and rejuvenate your skin for a radiant glow.</p>
+    </div>
+
+    <div class="card">
+      <h3>Body Contouring</h3>
+      <p>Eliminate stubborn fat and sculpt your body with non-surgical treatments.</p>
+    </div>
+
+    <div class="card">
+      <h3>Laser & Skin Treatments</h3>
+      <p>Improve skin tone, reduce pigmentation, and achieve smoother, clearer skin.</p>
+    </div>
   </div>
 </section>
 
@@ -193,9 +235,20 @@
 <section class="section">
   <h2>Why Choose Us</h2>
   <div class="services">
-    <div class="card"><h3>Expert-Led Treatments</h3><p>All procedures are guided by medical expertise for precision and safety.</p></div>
-    <div class="card"><h3>Natural Results</h3><p>We focus on enhancing your natural beauty, not overdoing it.</p></div>
-    <div class="card"><h3>Advanced Technology</h3><p>We use the latest FDA-approved devices and techniques.</p></div>
+    <div class="card">
+      <h3>Expert-Led Treatments</h3>
+      <p>All procedures are guided by medical expertise for precision and safety.</p>
+    </div>
+
+    <div class="card">
+      <h3>Natural Results</h3>
+      <p>We focus on enhancing your natural beauty, not overdoing it.</p>
+    </div>
+
+    <div class="card">
+      <h3>Advanced Technology</h3>
+      <p>We use the latest FDA-approved devices and techniques.</p>
+    </div>
   </div>
 </section>
 
@@ -230,5 +283,5 @@ window.addEventListener('load', function() {
 </script>
 
 </body>
-  </html>
+      </html>
   
